@@ -35,7 +35,12 @@ public class GameController : MonoBehaviour {
         p_object.transform.position = hand.transform.position;
         p_object.transform.rotation = hand.transform.rotation;
 
+
         p_object.transform.SetParent(hand.transform);
-	}
+
+        // Scale it to the canvas size
+        float canvasScaleFactor = GameObject.Find("Canvas").GetComponent<CanvasScaler>().scaleFactor;
+        p_object.transform.localScale = new Vector2(canvasScaleFactor, canvasScaleFactor);
+    }
 
 }

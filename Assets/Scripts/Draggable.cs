@@ -19,6 +19,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData dragEvent) {
         Debug.Log("[Draggable] OnBeginDrag()");
+        if (!draggable) { return; }
 
         placeholder = new GameObject();
         placeholder.transform.SetParent(this.transform.parent);
@@ -40,7 +41,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public void OnDrag(PointerEventData dragEvent) {
         if (!draggable) { return; }
 
-		transform.position = dragEvent.position;
+
+        float scale = GameObject.Find("Canvas").GetComponent<Canvas>().scaleFactor;
+        Debug.Log("[Draggable] scale " + scale);
+
+        transform.position = dragEvent.position;
+
+        Debug.Log("[Draggable] " + dragEvent.position + ", " + transform.position);
 
         int newSiblingIndex = originalParent.childCount;
 
@@ -55,7 +62,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         placeholder.transform.SetSiblingIndex(newSiblingIndex);
 
-        rb.rotation = Quaternion.Euler(dragEvent.delta.y * -tilt, dragEvent.delta.x * -tilt, 0.0f);
+        //rb.rotation = Quaternion.Euler(dragEvent.delta.y * -tilt, dragEvent.delta.x * -tilt, 0.0f);
     }
 
     public void OnEndDrag(PointerEventData eventData) {
@@ -64,6 +71,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         Destroy(placeholder);
         this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
+        rb.transform.rotation = Quaternion.identity;
     }
 	
 }

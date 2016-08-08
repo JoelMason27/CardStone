@@ -66,12 +66,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Card.cs" />
-    <Compile Include="Assets\DropZone.cs" />
+    <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardController.cs" />
     <Compile Include="Assets\Scripts\Draggable.cs" />
+    <Compile Include="Assets\Scripts\DropZone.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\TableDropZone.cs" />
+    <Compile Include="Assets\Scripts\TableDropZone.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
