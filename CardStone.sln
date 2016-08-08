@@ -1,14 +1,18 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{B0710C96-B920-1E4F-EF2A-B2A0277200D8}") = "CardStone", "Assembly-CSharp.csproj", "{90CCE120-2E10-4289-2DA1-38659AD56101}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{90CCE120-2E10-4289-2DA1-38659AD56101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90CCE120-2E10-4289-2DA1-38659AD56101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90CCE120-2E10-4289-2DA1-38659AD56101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90CCE120-2E10-4289-2DA1-38659AD56101}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
