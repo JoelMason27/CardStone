@@ -6,6 +6,8 @@ public class CardController : MonoBehaviour {
 
 	public Text titleText;
 
+    public CardData cardData;
+
 	private int value;
 
 	// Use this for initialization
@@ -16,10 +18,10 @@ public class CardController : MonoBehaviour {
 	public void SetValues(int p_value) {
 		Debug.Log ("[CardController] SetValues()");
 
-		value = p_value;
+        this.cardData = new CardData(p_value);
 
 		if (titleText != null) {
-			titleText.text = value.ToString();
+			titleText.text = this.cardData.Value.ToString();
 		}
 	}
 	
@@ -27,4 +29,19 @@ public class CardController : MonoBehaviour {
 	void Update () {
 	
 	}
+}
+
+public class CardData {
+
+    private int value;
+
+    public int Value {
+        get {
+            return value;
+        }
+    }
+
+    public CardData(int p_value) {
+        value = p_value;
+    }
 }

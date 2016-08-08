@@ -8,23 +8,34 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		AddCard ();
+		AddCards(5);
 	}
+
+    void AddCards(int numCards){
+        for (int i = 0; i < numCards; i++)
+        {
+            AddCard();
+        }
+    }
 
 	void AddCard() {
 		GameObject _card = Instantiate (card, Vector3.zero, Quaternion.identity) as GameObject;
-		AddToCanvas (_card);
 		CardController _cc = _card.GetComponent<CardController> ();
 		_cc.SetValues(Random.Range(0, 10));
-	}
+        AddToHand(_card);
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-	void AddToCanvas(GameObject p_object){
-		p_object.transform.SetParent((GameObject.FindGameObjectWithTag ("Canvas")).transform);
+	void AddToHand(GameObject p_object){
+        GameObject hand = (GameObject.FindGameObjectWithTag("Hand"));
+        p_object.transform.position = hand.transform.position;
+        p_object.transform.rotation = hand.transform.rotation;
+
+        p_object.transform.SetParent(hand.transform);
 	}
 
 }
